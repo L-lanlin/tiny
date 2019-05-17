@@ -42,11 +42,13 @@ generator = Generator()
 discriminator = Discriminator()
 
 # Load pretrained generator
+"""
 weights_ = torch.load("./models/generator_40.pth")
 weights = OrderedDict()
 for k, v in weights_.items():
     weights[k.split('module.')[-1]] = v
 generator.load_state_dict(weights)
+"""
 
 # Initialize fc layer of discriminator
 discriminator.apply(weights_init_normal)
