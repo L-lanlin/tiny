@@ -11,7 +11,7 @@ from torch.optim.lr_scheduler import StepLR
 
 from models import Generator, Discriminator
 from tools import G_loss, D_loss, weights_init_normal
-from dataset import arrange_data, WIDER
+from dataset import arrange_data, WIDER, VOCDetection
 
 writer = SummaryWriter()
 os.makedirs('saved_models', exist_ok=True)
@@ -96,9 +96,10 @@ valid_ground_background = valid_ground_background.to(device)
 
 # prepare data
 anno_path = "./WIDER/wider_face_split/wider_face_train_bbx_gt.txt"
-path, bbxs = arrange_data(anno_path)
-wider = WIDER(opt.train_path, path, bbxs, high_resolution=(opt.hr_height, opt.hr_width))
-dataloader = DataLoader(wider, batch_size=opt.batch_size, shuffle=True, num_workers=8)
+# path, bbxs = arrange_data(anno_path)
+# wider = WIDER(opt.train_path, path, bbxs, high_resolution=(opt.hr_height, opt.hr_width))
+voc = VOCDetection('/root/data/VOCdevkit/', high_resolution=(opt.hr_height, opt.hr_width))
+dataloader = DataLoader(voc, batch_size=opt.batch_size, shuffle=True, num_workers=8)
 
 
 # ----------
