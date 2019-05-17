@@ -5,6 +5,8 @@ from PIL import Image
 from os.path import join
 import numpy as np
 import os.path as osp
+import sys
+import cv2
 if sys.version_info[0] == 2:
     import xml.etree.cElementTree as ET
 else:
