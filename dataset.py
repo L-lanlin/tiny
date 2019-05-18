@@ -171,10 +171,13 @@ class VOCDetection(Dataset):
             target = np.hstack((boxes, np.expand_dims(labels, axis=1)))
 
         # random select one face
-        idx = np.random.randint(0, len(target), 1)
-        target[:, 2:] += target[:, 0:2]
+        # idx = np.random.randint(0, len(target), 1)
+        target = np.vstack(target)
 
-        bbx = target[idx, :].squeeze()
+        # target[:, 2:] += target[:, 0:2]
+
+        # bbx = target[idx, :].squeeze()
+        bbx = target[0].squeeze()
         true = img.crop(bbx)
         # random crop a fix-sized background patch
         x, y = np.random.randint(0, min(img.size) - 128, 2)
