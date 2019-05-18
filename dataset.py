@@ -53,11 +53,11 @@ def iou(a, b):
     return size / (sizea + sizeb - size)
     
 VOC_CLASSES = (  # always index 0
-    'aeroplane', 'bicycle', 'bird', 'boat',
-    'bottle', 'bus', 'car', 'cat', 'chair',
-    'cow', 'diningtable', 'dog', 'horse',
-    'motorbike', 'person', 'pottedplant',
-    'sheep', 'sofa', 'train', 'tvmonitor')
+    '1', '2', '3', '4',
+    '5', '6', '7', '8', '9',
+    '10', '11', '12', '13',
+    '14', '15', '16',
+    '17', '18', '19', '20')
 
 class VOCAnnotationTransform(object):
     """Transforms a VOC annotation into a Tensor of bbox coords and label index
@@ -125,7 +125,7 @@ class VOCDetection(Dataset):
     """
 
     def __init__(self, root,
-                 image_sets=[('2007', 'trainval'), ('2012', 'trainval')],
+                 image_sets=[('2007', 'trainval')],
                  transform=None, target_transform=VOCAnnotationTransform(),
                  dataset_name='VOC0712',high_resolution=(128, 128)):
         self.root = root
