@@ -118,9 +118,10 @@ for i, imgs in enumerate(dataloader):
         hr_background = imgs["hr_background"].to(device)
 
         g1, gen_face = generator(lr_face)
-        d = discriminator(gen_face)
-        d_loss = D_loss(discriminator(gen_face).detach(),valid_gen_face)
-        print(d)
+        d1 = discriminator(gen_face)
+        g11, gen_bg = generator(lr_background)
+        d2 = discriminator(gen_bg)
+        print(d1,d2)
 
 
 # ----------
