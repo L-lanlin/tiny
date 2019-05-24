@@ -20,7 +20,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--train_path', type=str, default="./WIDER/WIDER_train/images/", help='path of the training dataset')
 parser.add_argument('--epoch', type=int, default=0, help='epoch to start training from')
 parser.add_argument('--n_epochs', type=int, default=20, help='number of epochs of training')
-parser.add_argument('--batch_size', type=int, default=8, help='size of the batches')
+parser.add_argument('--batch_size', type=int, default=1, help='size of the batches')
 parser.add_argument('--lr', type=float, default=0.0001, help='adam: learning rate')
 parser.add_argument('--b1', type=float, default=0.9, help='adam: decay of first order momentum of gradient')
 parser.add_argument('--b2', type=float, default=0.999, help='adam: decay of first order momentum of gradient')
@@ -119,7 +119,8 @@ for i, imgs in enumerate(dataloader):
 
         g1, gen_face = generator(lr_face)
         d = discriminator(gen_face)
-        print(d)
+        d_loss = D_loss(discriminator(gen_face).detach(),valid_gen_face)
+        print(d,d_loss)
 
 
 # ----------
