@@ -121,7 +121,9 @@ for i, imgs in enumerate(dataloader):
         d1 = discriminator(gen_face)
         g11, gen_bg = generator(lr_background)
         d2 = discriminator(gen_bg)
-        print(d1.detach(),d2.detach())
+        d3 = discriminator(valid_ground_face)
+
+        print(d1.detach(),d2.detach(),d3.detach())
 
 
 # ----------
