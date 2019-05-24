@@ -120,7 +120,7 @@ for i, imgs in enumerate(dataloader):
         g1, gen_face = generator(lr_face)
         d = discriminator(gen_face)
         d_loss = D_loss(discriminator(gen_face).detach(),valid_gen_face)
-        print(d,d_loss)
+        print(d.item())
 
 
 # ----------
