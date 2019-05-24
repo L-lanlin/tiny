@@ -42,7 +42,7 @@ generator = Generator()
 discriminator = Discriminator()
 
 # Load pretrained generator
-weights_ = torch.load("./save_models/generator_99.pth")
+weights_ = torch.load("./saved_models/generator_99.pth")
 weights = OrderedDict()
 for k, v in weights_.items():
     weights[k.split('module.')[-1]] = v
@@ -50,7 +50,7 @@ generator.load_state_dict(weights)
 
 
 # Initialize fc layer of discriminator
-weights_ = torch.load("./save_models/discriminator_99.pth")
+weights_ = torch.load("./saved_models/discriminator_99.pth")
 weights = OrderedDict()
 for k, v in weights_.items():
     weights[k.split('module.')[-1]] = v
