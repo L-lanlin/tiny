@@ -52,12 +52,19 @@ def iou(a, b):
     size = wh[:, 0] * wh[:, 1]
     return size / (sizea + sizeb - size)
     
-VOC_CLASSES = (  # always index 0
-    '1', '2', '3', '4',
-    '5', '6', '7', '8', '9',
-    '10', '11', '12', '13',
-    '14', '15', '16',
-    '17', '18', '19', '20')
+# VOC_CLASSES = (  # always index 0
+#     '1', '2', '3', '4',
+#     '5', '6', '7', '8', '9',
+#     '10', '11', '12', '13',
+#     '14', '15', '16',
+#     '17', '18', '19', '20')
+
+VOC_CLASSES = ( # always index 0
+    'aeroplane', 'bicycle', 'bird', 'boat',
+    'bottle', 'bus', 'car', 'cat', 'chair',
+    'cow', 'diningtable', 'dog', 'horse',
+    'motorbike', 'person', 'pottedplant',
+    'sheep', 'sofa', 'train', 'tvmonitor')
 
 class VOCAnnotationTransform(object):
     """Transforms a VOC annotation into a Tensor of bbox coords and label index
