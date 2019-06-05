@@ -99,7 +99,7 @@ anno_path = "./WIDER/wider_face_split/wider_face_train_bbx_gt.txt"
 # path, bbxs = arrange_data(anno_path)
 # wider = WIDER(opt.train_path, path, bbxs, high_resolution=(opt.hr_height, opt.hr_width))
 voc = VOCDetection('/root/data/VOCdevkit/', high_resolution=(opt.hr_height, opt.hr_width))
-dataloader = DataLoader(voc, batch_size=opt.batch_size, shuffle=True, num_workers=8, drop_last=False)
+dataloader = DataLoader(voc, batch_size=opt.batch_size, shuffle=True, num_workers=8, drop_last=True)
 
 
 # ----------

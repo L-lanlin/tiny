@@ -184,7 +184,7 @@ class VOCDetection(Dataset):
         # target[:, 2:] += target[:, 0:2]
 
         # bbx = target[idx, :].squeeze()
-        bbx = target[0].squeeze()
+        bbx = target[np.random.randint(len(target))].squeeze()
         true = img.crop(bbx)
         # random crop a fix-sized background patch
         x, y = np.random.randint(0, min(img.size) - 128, 2)
